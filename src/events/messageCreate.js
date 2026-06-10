@@ -8,12 +8,12 @@ module.exports = {
     async execute(message, client) {
         if (message.author.bot || !message.guild) return;
 
-        // ===================== ANTI-SPAM =====================
+        // ANTI-SPAM COOLDOWN
         if (!client.messageCooldowns) client.messageCooldowns = new Map();
 
         const userId = message.author.id;
         const now = Date.now();
-        const COOLDOWN = 3500; // 3.5 segundos entre mensagens para ganhar XP
+        const COOLDOWN = 3500; // 3.5 segundos
 
         const lastMessage = client.messageCooldowns.get(userId);
 
@@ -23,12 +23,12 @@ module.exports = {
 
         client.messageCooldowns.set(userId, now);
 
-        // ===================== LEVELING =====================
+        // LEVELING
         if (!client.levels) client.levels = new Map();
         
         const userData = client.levels.get(userId) || { xp: 0, level: 1 };
         
-        const xpGain = Math.floor(Math.random() * 8) + 8; // 8 a 15 XP
+        const xpGain = Math.floor(Math.random() * 8) + 8;
         userData.xp += xpGain;
 
         const oldLevel = userData.level;
@@ -38,9 +38,7 @@ module.exports = {
             userData.level = newLevel;
             
             const levelUpChannel = message.guild.channels.cache.find(ch => 
-                ch.name.toLowerCase().includes('level') || 
-                ch.name.toLowerCase().includes('geral') || 
-                ch.name.toLowerCase().includes('chat')
+                ch.name.toLowerCase().includes('level') || ch.name.toLowerCase().includes('geral')
             );
             
             if (levelUpChannel) {

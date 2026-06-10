@@ -1,26 +1,26 @@
-# 🌌 Órion Bot
+# Órion Bot 🌌
 
-Bot oficial da comunidade **Órion** - Gamers + Anime & Mangá.
+Bot oficial da comunidade Órion - Gamers + Anime + Mangá.
+
+## Funcionalidades
+
+- **Sistema de Leveling** com anti-spam
+- **Welcome automático** com embed cósmico
+- Comandos: /orion, /perfil, /daily, /roll, /leaderboard
+- Embeds temáticos roxo/ciano neon
 
 ## Como rodar
 
-1. Clone o repositório
-2. Copie `.env.example` para `.env` e preencha o token
-3. `npm install`
-4. `npm run dev`
+```bash
+npm install
+cp .env.example .env
+# Coloque seu token
+npm run dev
+```
 
-## Comandos
+## Estrutura
+- `src/commands/` - Comandos Slash
+- `src/events/` - Eventos (welcome, leveling...)
+- `src/utils/` - Utilitários
 
-- `/orion` - Informações do servidor
-- `/perfil` - Seu perfil cósmico
-- `/daily` - Recompensa diária
-- `/roll` - Invocação Estelar (gacha)
-- `/leaderboard` - Ranking dos membros
-
-## Próximos passos recomendados
-- Adicionar banco de dados (SQLite)
-- Sistema completo de Leveling (XP por mensagem)
-- Welcome message automático
-- Mais personagens no gacha
-
-Feito com ❤️ para a Constelação Órion.
+Desenvolvido com ❤️ para a Constelação Órion.
